@@ -1,6 +1,6 @@
 module.exports = {
     env: {
-        "BASE_URL": "http://localhost:3000",
+        "BASE_URL": "https://accommodation.vercel.app",
         "MONGODB_URL": "mongodb+srv://blake:Vinhloc@cluster0.kg7vc.mongodb.net/lnapp?retryWrites=true&w=majority",
         "ACCESS_TOKEN_SECRET": "qnVBR9.3GZ5k:*W+9'Rjee*LJ+Z>zRp^jhx9U}2?CZ+.%?",
         "REFRESH_TOKEN_SECRET": "eU/^?y{()T;m(+Xt<P3vV3y&+hWtPUe:p#Af&mA(GXfmUT`jv~7ynzz2.)LGenM(%P56t)(}2[7.",
