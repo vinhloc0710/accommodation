@@ -2,6 +2,7 @@ import Head from 'next/head'
 import { useContext } from 'react'
 import {DataContext} from '../store/GlobalState'
 import Link from 'next/link'
+import Menu from "../components/Menu";
 
 const Users = () => {
     const {state, dispatch} = useContext(DataContext)
@@ -9,12 +10,15 @@ const Users = () => {
 
     if(!auth.user) return null;
     return(
-        <div className="table-responsive">
+        <div>
             <Head>
                 <title>Users</title>
             </Head>
-
-            <table className="table w-100">
+            <div className="row">
+        <div className="col-10 " id="main">
+          <div className="row m-1">
+            <h2>Manage Users</h2>
+            <table className="table w-100 ">
                 <thead>
                     <tr>
                         <th></th>
@@ -77,7 +81,9 @@ const Users = () => {
                     }
                 </tbody>
             </table>
-
+                </div>
+                </div>
+                </div>
         </div>
     )
 }

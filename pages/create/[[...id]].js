@@ -4,6 +4,7 @@ import {DataContext} from '../../store/GlobalState'
 import {imageUpload} from '../../utils/imageUpload'
 import {postData, getData, putData} from '../../utils/fetchData'
 import {useRouter} from 'next/router'
+import Menu from '../../components/Menu'
 
 const ProductsManager = () => {
     const initialState = {
@@ -117,6 +118,14 @@ const ProductsManager = () => {
             <Head>
                 <title>Products Manager</title>
             </Head>
+            <div className="row">
+            
+        <div className="col-10 " id="main">
+          <div className="row m-1">
+            <h2>Add New Product</h2>
+
+            
+            </div>
             <form className="row" onSubmit={handleSubmit}>
                 <div className="col-md-6">
                     
@@ -202,7 +211,9 @@ const ProductsManager = () => {
 
                
             </form>
-
+            </div>
+            </div>
+            
             
         </div>
     )

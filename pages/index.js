@@ -8,6 +8,7 @@ import filterSearch from '../utils/filterSearch'
 import {useRouter} from 'next/router'
 import Filter from '../components/Filter'
 
+
 const Home = (props) => {
   const [products, setProducts] = useState(props.products)
 
@@ -61,7 +62,7 @@ const Home = (props) => {
   }
 
   return(
-    <div className="home_page">
+    <div className="home_page row justify-content-center">
       <Head>
         <title>Home Page</title>
       </Head>
@@ -82,7 +83,7 @@ const Home = (props) => {
         </div>
       }
 
-      <div className="products">
+      <div className="products col-lg-10">
         {
           products.length === 0 
           ? <h2>No Products</h2>
@@ -94,7 +95,7 @@ const Home = (props) => {
       </div>
       
       {
-        props.result < page * 6 ? ""
+        props.result < page * 10 ? ""
         : <button className="btn btn-outline-info d-block mx-auto mb-4"
         onClick={handleLoadmore}>
           Load more
@@ -113,7 +114,7 @@ export async function getServerSideProps({query}) {
   const search = query.search || 'all'
 
   const res = await getData(
-    `product?limit=${page * 6}&category=${category}&sort=${sort}&title=${search}`
+    `product?limit=${page * 10}&category=${category}&sort=${sort}&title=${search}`
   )
   // server side rendering
   return {

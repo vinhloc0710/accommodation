@@ -17,27 +17,30 @@ const DetailProduct = (props) => {
     }
 
     return(
-        <div className="row detail_page">
+        <div className="row detail_page justify-content-md-center">
             <Head>
                 <title>Detail Product</title>
             </Head>
 
-            <div className="col-md-6">
-                <img src={ product.images[tab].url } alt={ product.images[tab].url }
-                className="d-block img-thumbnail rounded mt-4 w-100"
-                style={{height: '350px'}} />
+            <div className="col-lg-10">
+                <div className="row">
+                    <div className="col-md-6">
+                        
+                    <img src={ product.images[tab].url } alt={ product.images[tab].url }
+                    className="d-block img-thumbnail rounded mt-4 w-100"
+                    style={{height: '500px', objectFit:'cover', objectPosition:'center'}} />
 
-                <div className="row mx-0" style={{cursor: 'pointer'}} >
+                    <div className="row mx-0" style={{cursor: 'pointer'}} >
 
-                    {product.images.map((img, index) => (
-                        <img key={index} src={img.url} alt={img.url}
-                        className={`img-thumbnail rounded ${isActive(index)}`}
-                        style={{height: '80px', width: '20%'}}
-                        onClick={() => setTab(index)} />
-                    ))}
+                        {product.images.map((img, index) => (
+                            <img key={index} src={img.url} alt={img.url}
+                            className={`img-thumbnail rounded ${isActive(index)}`}
+                            style={{height: '80px', width: '20%'}}
+                            onClick={() => setTab(index)} />
+                        ))}
 
+                    </div>
                 </div>
-            </div>
 
             <div className="col-md-6 mt-3">
                 <h2 className="text-uppercase">{product.title}</h2>
@@ -53,7 +56,7 @@ const DetailProduct = (props) => {
                     <h6 className="text-danger">Sold: {product.sold}</h6>
                 </div>
 
-                <div className="my-2">{product.description}</div>
+                <div className="my-2">Description: {product.description}</div>
                 <div className="my-2">
                     Address: {product.content}
                 </div>
@@ -67,6 +70,9 @@ const DetailProduct = (props) => {
                 </button>
 
             </div>
+                </div>
+            </div>
+            
         </div>
     )
 }

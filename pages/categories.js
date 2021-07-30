@@ -3,6 +3,7 @@ import {useContext, useState} from 'react'
 import {DataContext} from '../store/GlobalState'
 import {updateItem} from '../store/Actions'
 import { postData, putData } from "../utils/fetchData";
+import Menu from "../components/Menu";
 
 const Categories = () => {
     const [name, setName] = useState('')
@@ -42,11 +43,18 @@ const Categories = () => {
     }
 
     return(
-        <div className="col-md-6 mx-auto my-3">
+        <div>
             <Head>
                 <title>Categories</title>
             </Head>
-
+            <div className="row">
+            
+        <div className="col-10 " id="main">
+          <div className="row m-1">
+            <h2>Manage Categories</h2>
+            
+            
+            </div>
             <div className="input-group mb-3">
                 <input type="text" className="form-control"
                 placeholder="Add a new category" value={name}
@@ -57,33 +65,38 @@ const Categories = () => {
                     {id ? "Update": "Create"}
                 </button>
             </div>
-
+            <div className="row">
             {
                 categories.map(catogory => (
-                    <div key={catogory._id} className="card my-2 text-capitalize">
-                        <div className="card-body d-flex justify-content-between">
-                            {catogory.name}
+                    <div key={catogory._id} className="col-2">
+                        <div className="card my-2 mx-1 text-capitalize">
+                            <div className="card-body d-flex justify-content-between">
+                                <span className="pr-2">{catogory.name}</span>
+                                
 
-                            <div style={{cursor: 'pointer'}}>
-                                <i className="fas fa-edit mr-2 text-info"
-                                onClick={() => handleEditCategory(catogory)}></i>
+                                <div style={{cursor: 'pointer'}}>
+                                    <i className="fas fa-edit mr-2 text-info"
+                                    onClick={() => handleEditCategory(catogory)}></i>
 
-                                <i className="fas fa-trash-alt text-danger"
-                                data-toggle="modal" data-target="#exampleModal"
-                                onClick={() => dispatch({
-                                    type: 'ADD_MODAL',
-                                    payload: [{ 
-                                        data: categories, id: catogory._id, 
-                                        title: catogory.name, type: 'ADD_CATEGORIES' 
-                                    }]
-                                })} ></i>
+                                    <i className="fas fa-trash-alt text-danger"
+                                    data-toggle="modal" data-target="#exampleModal"
+                                    onClick={() => dispatch({
+                                        type: 'ADD_MODAL',
+                                        payload: [{ 
+                                            data: categories, id: catogory._id, 
+                                            title: catogory.name, type: 'ADD_CATEGORIES' 
+                                        }]
+                                    })} ></i>
+                                </div>
+
                             </div>
-
                         </div>
                     </div>
                 ))
             }
-           
+           </div>
+            </div>  
+            </div>  
         </div>
     )
 }

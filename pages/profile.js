@@ -8,6 +8,8 @@ import { patchData } from '../utils/fetchData'
 
 import {imageUpload} from '../utils/imageUpload'
 
+import Menu from "../components/Menu";
+
 const Profile = () => {
     const initialSate = {
         avatar: '',
@@ -91,8 +93,8 @@ const Profile = () => {
             <Head>
                 <title>Profile</title>
             </Head>
-
-            <section className="row text-secondary my-3">
+            <div className="row">
+                        
                 <div className="col-md-4">
                     <h3 className="text-center text-uppercase">
                         {auth.user.role === 'user' ? 'User Profile' : 'Admin Profile'}
@@ -144,7 +146,7 @@ const Profile = () => {
 
                     <div className="my-3 table-responsive">
                         <table className="table-bordered table-hover w-100 text-uppercase"
-                        style={{minWidth: '600px', cursor: 'pointer'}}>
+                        style={{minWidth: '700px', cursor: 'pointer'}}>
                             <thead className="bg-light font-weight-bold">
                                 <tr>
                                     <td className="p-2">id</td>
@@ -191,7 +193,7 @@ const Profile = () => {
                         </table>
                     </div>
                 </div>
-            </section>
+            </div>
         </div>
     )
 }

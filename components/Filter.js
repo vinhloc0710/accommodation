@@ -30,17 +30,14 @@ const Filter = ({state}) => {
     return (
         <div className="input-group">
             <div className="input-group-prepend col-md-2 px-0 mt-2">
-                <select className="custom-select text-capitalize"
-                value={category} onChange={handleCategory}>
-
-                    <option value="all">All Products</option>
-
-                    {
-                        categories.map(item => (
-                            <option key={item._id} value={item._id}>{item.name}</option>
-                        ))
-                    }
-                </select>
+            <select className="form-select" value={category} onChange={handleCategory}>
+                <option value="all">All Products</option>
+                {
+                    categories.map(item => (
+                        <option key={item._id} value={item._id}>{item.name}</option>
+                    ))
+                }
+            </select>
             </div>
 
             <form autoComplete="off" className="mt-2 col-md-8 px-0">
@@ -49,7 +46,8 @@ const Filter = ({state}) => {
             </form>
 
             <div className="input-group-prepend col-md-2 px-0 mt-2">
-                <select className="custom-select text-capitalize"
+                
+                <select className="form-select text-capitalize"
                 value={sort} onChange={handleSort}>
 
                      <option value="-createdAt">Newest</option>
